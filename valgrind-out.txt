@@ -1,0 +1,667 @@
+==20029== Memcheck, a memory error detector
+==20029== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==20029== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==20029== Command: ./check_url localhost:8080 0
+==20029== Parent PID: 6549
+==20029== 
+--20029-- 
+--20029-- Valgrind options:
+--20029--    --leak-check=full
+--20029--    --show-leak-kinds=all
+--20029--    --track-origins=yes
+--20029--    --verbose
+--20029--    --log-file=valgrind-out.txt
+--20029-- Contents of /proc/version:
+--20029--   Linux version 5.4.0-1051-gcp (buildd@lgw01-amd64-026) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #55~18.04.1-Ubuntu SMP Sun Aug 1 20:38:04 UTC 2021
+--20029-- 
+--20029-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--20029-- Page sizes: currently 4096, max supported 4096
+--20029-- Valgrind library directory: /usr/lib/valgrind
+--20029-- Reading syms from /home/alx/sb-bench/curl/check_url
+--20029-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--20029--   .. CRC mismatch (computed 0ef8daab wanted 65bccefe)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--20029--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--20029--   .. CRC mismatch (computed 41ddb025 wanted 9972f546)
+--20029--    object doesn't have a symbol table
+--20029--    object doesn't have a dynamic symbol table
+--20029-- Scheduler: using generic scheduler lock implementation.
+--20029-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==20029== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20029-by-alx-on-???
+==20029== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20029-by-alx-on-???
+==20029== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20029-by-alx-on-???
+==20029== 
+==20029== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20029== don't want to do, unless you know exactly what you're doing,
+==20029== or are doing some strange experiment):
+==20029==   /usr/lib/valgrind/../../bin/vgdb --pid=20029 ...command...
+==20029== 
+==20029== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20029==   /path/to/gdb ./check_url
+==20029== and then give GDB the following command
+==20029==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=20029
+==20029== --pid is optional if only one valgrind process is running
+==20029== 
+--20029-- REDIR: 0x4020d20 (ld-linux-x86-64.so.2:strlen) redirected to 0x580608c1 (???)
+--20029-- REDIR: 0x4020b00 (ld-linux-x86-64.so.2:index) redirected to 0x580608db (???)
+--20029-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--20029--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--20029--   .. CRC mismatch (computed 50df1b30 wanted 4800a4cf)
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--20029--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--20029--   .. CRC mismatch (computed f893b962 wanted 95ee359e)
+--20029--    object doesn't have a symbol table
+==20029== WARNING: new redirection conflicts with existing -- ignoring it
+--20029--     old: 0x04020d20 (strlen              ) R-> (0000.0) 0x580608c1 ???
+--20029--     new: 0x04020d20 (strlen              ) R-> (2007.0) 0x04c34db0 strlen
+--20029-- REDIR: 0x401d540 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c35ee0 (strcmp)
+--20029-- REDIR: 0x4021260 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c394f0 (mempcpy)
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--20029--   .. CRC mismatch (computed cb654923 wanted 8713c55a)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.15.2
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.3
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/librtmp.so.1
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libpsl.so.5.2.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.8
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.8
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libz.so.1.2.11
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.27.so
+--20029--   Considering /usr/lib/debug/.build-id/68/f36706eb2e6eee4046c4fdca2a19540b2f6113.debug ..
+--20029--   .. build-id is valid
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnutls.so.30.14.10
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libnettle.so.6.5
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/libdl-2.27.so ..
+--20029--   .. CRC mismatch (computed 62a3fcc8 wanted 93ecbe64)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libdl-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libcom_err.so.2.1
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libresolv-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/libresolv-2.27.so ..
+--20029--   .. CRC mismatch (computed 687469d1 wanted f09db89c)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libresolv-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libgssapi.so.3.0.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libkeyutils.so.1.5
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libheimntlm.so.0.1.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5.so.26.0.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libasn1.so.8.0.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libhcrypto.so.4.1.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libroken.so.18.1.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libwind.so.0.0.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libheimbase.so.1.0.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libhx509.so.5.0.0
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+--20029--    object doesn't have a symbol table
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libcrypt-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/libcrypt-2.27.so ..
+--20029--   .. CRC mismatch (computed de51de3c wanted 76121ad8)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libcrypt-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libm-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/libm-2.27.so ..
+--20029--   .. CRC mismatch (computed 8017c758 wanted 0183ab3a)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- REDIR: 0x515eb70 (libc.so.6:memmove) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515de80 (libc.so.6:strncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ee50 (libc.so.6:strcasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515d8d0 (libc.so.6:strcat) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515deb0 (libc.so.6:rindex) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x51605a0 (libc.so.6:rawmemchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ece0 (libc.so.6:mempcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515eb10 (libc.so.6:bcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515de40 (libc.so.6:strncmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515d940 (libc.so.6:strcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ec40 (libc.so.6:memset) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x517bed0 (libc.so.6:wcschr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515dde0 (libc.so.6:strnlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515d9b0 (libc.so.6:strcspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515eea0 (libc.so.6:strncasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515d980 (libc.so.6:strcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515efe0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515dee0 (libc.so.6:strpbrk) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515d900 (libc.so.6:index) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ddb0 (libc.so.6:strlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x51684a0 (libc.so.6:memrchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515eef0 (libc.so.6:strcasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515eae0 (libc.so.6:memchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x517cc90 (libc.so.6:wcslen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515e190 (libc.so.6:strspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ee20 (libc.so.6:stpncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515edf0 (libc.so.6:stpcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x51605d0 (libc.so.6:strchrnul) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ef40 (libc.so.6:strncasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x51f1730 (libc.so.6:__memcpy_chk) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x515ea20 (libc.so.6:strstr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+--20029-- REDIR: 0x51f1800 (libc.so.6:__memmove_chk) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+==20029== WARNING: new redirection conflicts with existing -- ignoring it
+--20029--     old: 0x0524ea00 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c395e0 __memcpy_chk
+--20029--     new: 0x0524ea00 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c38fa0 __memmove_chk
+--20029-- REDIR: 0x515de10 (libc.so.6:strncat) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+==20029== WARNING: new redirection conflicts with existing -- ignoring it
+--20029--     old: 0x0524ea00 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c395e0 __memcpy_chk
+--20029--     new: 0x0524ea00 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c38fa0 __memmove_chk
+==20029== WARNING: new redirection conflicts with existing -- ignoring it
+--20029--     old: 0x0524ea00 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c395e0 __memcpy_chk
+--20029--     new: 0x0524ea00 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c38fa0 __memmove_chk
+--20029-- REDIR: 0x524e300 (libc.so.6:__strrchr_avx2) redirected to 0x4c34730 (rindex)
+--20029-- REDIR: 0x524e4d0 (libc.so.6:__strlen_avx2) redirected to 0x4c34cf0 (strlen)
+--20029-- REDIR: 0x5157140 (libc.so.6:malloc) redirected to 0x4c31aa0 (malloc)
+--20029-- REDIR: 0x524ea10 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c386e0 (memmove)
+--20029-- REDIR: 0x5169c50 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c35da0 (strcmp)
+--20029-- REDIR: 0x515a170 (libc.so.6:calloc) redirected to 0x4c33a70 (calloc)
+--20029-- REDIR: 0x524dee0 (libc.so.6:__strchr_avx2) redirected to 0x4c34950 (index)
+--20029-- REDIR: 0x524ea00 (libc.so.6:__memcpy_chk_avx_unaligned_erms) redirected to 0x4c395e0 (__memcpy_chk)
+--20029-- REDIR: 0x5157a30 (libc.so.6:free) redirected to 0x4c32cd0 (free)
+--20029-- REDIR: 0x524ee90 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4c385d0 (memset)
+--20029-- REDIR: 0x5176320 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c34dd0 (strcpy)
+--20029-- REDIR: 0x5158d70 (libc.so.6:realloc) redirected to 0x4c33cb0 (realloc)
+--20029-- REDIR: 0x5177930 (libc.so.6:__stpcpy_sse2_unaligned) redirected to 0x4c38200 (__stpcpy_sse2_unaligned)
+--20029-- REDIR: 0x524e9f0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c39130 (mempcpy)
+--20029-- REDIR: 0x515e6c0 (libc.so.6:__GI_strstr) redirected to 0x4c39760 (__strstr_sse2)
+--20029-- REDIR: 0x524a360 (libc.so.6:__memchr_avx2) redirected to 0x4c35f80 (memchr)
+--20029-- REDIR: 0x5245450 (libc.so.6:__strncmp_sse42) redirected to 0x4c35570 (__strncmp_sse42)
+--20029-- REDIR: 0x524a0f0 (libc.so.6:__strpbrk_sse42) redirected to 0x4c39860 (strpbrk)
+--20029-- REDIR: 0x524a630 (libc.so.6:__rawmemchr_avx2) redirected to 0x4c39050 (rawmemchr)
+--20029-- REDIR: 0x524e110 (libc.so.6:__strchrnul_avx2) redirected to 0x4c39020 (strchrnul)
+--20029-- REDIR: 0x524c530 (libc.so.6:__strncasecmp_avx) redirected to 0x4c356d0 (strncasecmp)
+--20029-- Reading syms from /lib/x86_64-linux-gnu/libnss_files-2.27.so
+--20029--   Considering /lib/x86_64-linux-gnu/libnss_files-2.27.so ..
+--20029--   .. CRC mismatch (computed d7db1807 wanted 38d9d6f5)
+--20029--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libnss_files-2.27.so ..
+--20029--   .. CRC is valid
+--20029-- REDIR: 0x524aec0 (libc.so.6:__strcasecmp_avx) redirected to 0x4c355f0 (strcasecmp)
+--20029-- Discarding syms at 0xbef4350-0xbefad8f in /lib/x86_64-linux-gnu/libnss_files-2.27.so due to munmap()
+==20029== 
+==20029== HEAP SUMMARY:
+==20029==     in use at exit: 118,810 bytes in 44 blocks
+==20029==   total heap usage: 4,500 allocs, 4,456 frees, 362,100 bytes allocated
+==20029== 
+==20029== Searching for pointers to 44 not-freed blocks
+==20029== Checked 693,352 bytes
+==20029== 
+==20029== 1 bytes in 1 blocks are possibly lost in loss record 1 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E60021: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 1 bytes in 1 blocks are possibly lost in loss record 2 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E6003D: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are still reachable in loss record 3 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D1A1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are still reachable in loss record 4 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D1B8: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are still reachable in loss record 5 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E92A80: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E95D6D: curl_easy_setopt (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108CDC: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are still reachable in loss record 6 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D1A1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are still reachable in loss record 7 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D1B8: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are possibly lost in loss record 8 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4EA147B: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6157E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are possibly lost in loss record 9 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4EA147B: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E615A1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are indirectly lost in loss record 10 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D1A1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 15 bytes in 1 blocks are indirectly lost in loss record 11 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D1B8: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 16 bytes in 1 blocks are still reachable in loss record 12 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E7AD55: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E85BFE: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E8318A: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x6D446DA: start_thread (pthread_create.c:463)
+==20029==    by 0x51E171E: clone (clone.S:95)
+==20029== 
+==20029== 24 bytes in 1 blocks are still reachable in loss record 13 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E4C921: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E76CDF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E85EE9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E73B65: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 32 bytes in 1 blocks are still reachable in loss record 14 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E70428: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71758: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 32 bytes in 1 blocks are still reachable in loss record 15 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E62FFE: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E63E14: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E64853: curl_maprintf (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5F9DB: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are still reachable in loss record 16 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D163: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are still reachable in loss record 17 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D18A: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are still reachable in loss record 18 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D163: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are still reachable in loss record 19 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D18A: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are possibly lost in loss record 20 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4EA149E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6157E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are possibly lost in loss record 21 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4EA149E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E615A1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are indirectly lost in loss record 22 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D163: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 35 bytes in 1 blocks are indirectly lost in loss record 23 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x515DAF9: strdup (strdup.c:42)
+==20029==    by 0x4E911BF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D18A: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E5D2D9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 48 bytes in 1 blocks are still reachable in loss record 24 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E8942D: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E61D6E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 48 bytes in 1 blocks are still reachable in loss record 25 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E7ACFF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E85BFE: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E8318A: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x6D446DA: start_thread (pthread_create.c:463)
+==20029==    by 0x51E171E: clone (clone.S:95)
+==20029== 
+==20029== 59 bytes in 1 blocks are still reachable in loss record 26 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E70531: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E894B4: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E61D6E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 63 bytes in 1 blocks are still reachable in loss record 27 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E70531: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E4C95B: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E76CDF: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E85EE9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E73B65: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 96 bytes in 1 blocks are still reachable in loss record 28 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E70428: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E8911C: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 224 bytes in 1 blocks are still reachable in loss record 29 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E70428: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E7172B: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 256 bytes in 1 blocks are still reachable in loss record 30 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D2C1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 256 bytes in 1 blocks are still reachable in loss record 31 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D2C1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 256 bytes in 1 blocks are indirectly lost in loss record 32 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D2C1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 258 bytes in 1 blocks are still reachable in loss record 33 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5EED6: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 258 bytes in 1 blocks are possibly lost in loss record 34 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5EEF9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 448 bytes in 1 blocks are possibly lost in loss record 35 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5EBF1: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 480 bytes in 1 blocks are still reachable in loss record 36 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E716F7: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 680 bytes in 1 blocks are still reachable in loss record 37 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4EA2037: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E69369: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E731E7: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 2,032 bytes in 1 blocks are possibly lost in loss record 38 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5EBC6: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E734EA: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E74613: curl_multi_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A483: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 16,385 bytes in 1 blocks are still reachable in loss record 39 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D2A9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 16,385 bytes in 1 blocks are still reachable in loss record 40 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D2A9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 16,385 bytes in 1 blocks are indirectly lost in loss record 41 of 44
+==20029==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D2A9: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 21,224 bytes in 1 blocks are still reachable in loss record 42 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D26E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x1089F4: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 21,224 bytes in 1 blocks are still reachable in loss record 43 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D26E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E890F3: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E71768: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A5BE: curl_easy_perform (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108D93: check_url (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x108A21: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== 37,965 (21,224 direct, 16,741 indirect) bytes in 1 blocks are definitely lost in loss record 44 of 44
+==20029==    at 0x4C33B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20029==    by 0x4E5D26E: ??? (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x4E6A353: curl_easy_init (in /usr/lib/x86_64-linux-gnu/libcurl.so.4.5.0)
+==20029==    by 0x108C44: START (in /home/alx/sb-bench/curl/check_url)
+==20029==    by 0x1089EF: main (in /home/alx/sb-bench/curl/check_url)
+==20029== 
+==20029== LEAK SUMMARY:
+==20029==    definitely lost: 21,224 bytes in 1 blocks
+==20029==    indirectly lost: 16,741 bytes in 6 blocks
+==20029==      possibly lost: 2,840 bytes in 9 blocks
+==20029==    still reachable: 78,005 bytes in 28 blocks
+==20029==         suppressed: 0 bytes in 0 blocks
+==20029== 
+==20029== ERROR SUMMARY: 10 errors from 10 contexts (suppressed: 0 from 0)
+==20029== ERROR SUMMARY: 10 errors from 10 contexts (suppressed: 0 from 0)
